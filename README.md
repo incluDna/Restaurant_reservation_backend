@@ -1,4 +1,4 @@
-## Restaurant_reservation
+## Restaurant_reservation 🥐🛎️🍽️🍱🍣
 
 #### Backend code for restaurant resservation
 - users can register, login, logout (have role user and admin)
