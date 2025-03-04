@@ -15,10 +15,15 @@
 - using Node.js, VScode
 - Database: MongoDB Atlas, Postman
 
-#### Diagram
-
+#### Diagram (only requirement, don't have Review(extra))
+- Use case diagram: [code(.puml)](https://github.com/incluDna/Restaurant_reservation/blob/f90da645d391819c57c61c255ea46f1d759ff505/RRSusecase.puml) | [diagram(.png)](https://github.com/incluDna/Restaurant_reservation/blob/f90da645d391819c57c61c255ea46f1d759ff505/out/Restaurant%20reservation%20system%20Use%20Case%20Diagram.png)
+- Class diagram: [code(.puml)](https://github.com/incluDna/Restaurant_reservation/blob/f90da645d391819c57c61c255ea46f1d759ff505/classDiagram.puml) | [diagram(.png)](https://github.com/incluDna/Restaurant_reservation/blob/f90da645d391819c57c61c255ea46f1d759ff505/out/classDiagram.png)
+- Sequence diagram: [code(.puml)](https://github.com/incluDna/Restaurant_reservation/tree/f90da645d391819c57c61c255ea46f1d759ff505/Sequence%20Diagram) | [diagram(.png)](https://github.com/incluDna/Restaurant_reservation/tree/f90da645d391819c57c61c255ea46f1d759ff505/out/Sequence%20Diagram)
 #### Presentation
 
 #### Task management, Lesson learn 🦾
 
+
 #### Contributors
+- Atipat B. [atipata](https://github.com/atipata)
+- Penpitcha P. [incluDna](https://github.com/incluDna)
