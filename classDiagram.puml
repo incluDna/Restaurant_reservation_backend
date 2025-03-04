@@ -57,7 +57,7 @@ class Review {
     + getReviews()
     + updateMyReview()
     + deleteMyReview()
-    + getAllReviews() <<admin only>>
+    + getAllReviews()
     + updateReview() <<admin only>>
     + deleteReview() <<admin only>>
 }
