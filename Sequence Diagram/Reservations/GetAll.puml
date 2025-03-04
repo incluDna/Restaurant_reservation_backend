@@ -1,0 +1,22 @@
+@startuml Reservation (GET ALL)
+
+header Get Reservations
+title "Reservation (GET ALL)"
+
+participant "Client" as client
+participant "<<javaScript>>\n:server" as server
+participant "<<router>>\n:reservations" as routerReservations
+participant "<<controllers>>\n:reservations" as controllersReservations
+participant "<<model>>\n:Reservation" as modelReservation
+database "<<MongoDB>>\n:reservations" as ReservationDatabase
+
+client->server ++:req.get('/api/v1/reservations')
+server->routerReservations ++:app.use('/api/v1/reservations',reservations)
+routerReservations->controllersReservations ++:getReservations()
+controllersReservations ->modelReservation ++: find()
+modelReservation -> ReservationDatabase ++: ReservationSchema
+ReservationDatabase --> modelReservation --: reservations
+controllersReservations <-- modelReservation --:reservations
+controllersReservations->client --:response
+
+@enduml

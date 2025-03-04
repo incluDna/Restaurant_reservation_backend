@@ -1,0 +1,22 @@
+@startuml Restaurant reservation system Use Case Diagram
+skinparam actorStyle awesome
+actor "User" as user
+package "Review" as review {    
+    usecase "view Review" as viewReview
+    usecase "Manage your\nReview" as manageYourReview
+    usecase "Manage all\nReview" as manageAllReview
+
+}
+
+user -- viewReview
+user -- manageYourReview
+
+actor "Admin" as admin
+viewReview -- admin
+manageAllReview -- admin
+
+note left of user : manage means can create, insert, delete\nuser: manage yours = users can create,\ninsert, delete only their own
+
+note left of admin :admin: manage all = can create, insert, delete\nall reviews
+
+@enduml

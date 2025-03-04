@@ -1,0 +1,22 @@
+@startuml Auth (logout)
+
+header logout Auth
+title "Auth (LOGOUT)"
+
+
+participant "Client" as client
+participant "<<javaScript>>\n:server" as server
+participant "<<router>>\n:Auths" as routerAuths
+participant "<<controllers>>\n:Auths" as controllersAuths
+' participant "<<middleware>>\n:Auths" as middlewareAuths
+participant "<<model>>\n:User" as modelUsers
+database "<<MongoDB>>\n:Users" as UserDatabase
+
+
+client->server ++:req.post('/api/v1/auth')
+server->routerAuths ++:app.use('/api/v1/auth/logout', auth);
+routerAuths -> controllersAuths ++: logout()
+controllersAuths --> server --: Clear Cookie (Set token='none')
+server --> client --: Response (Success)
+
+@enduml

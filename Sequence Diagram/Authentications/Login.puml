@@ -1,0 +1,32 @@
+@startuml Auth (Login)
+
+header Login Auth
+title "Auth (LOGIN)"
+
+
+participant "Client" as client
+participant "<<javaScript>>\n:server" as server
+participant "<<router>>\n:Auths" as routerAuths
+participant "<<controllers>>\n:Auths" as controllersAuths
+' participant "<<middleware>>\n:Auths" as middlewareAuths
+participant "<<sendTokenResponse>>\n:Auths" as sendTokenResponse
+participant "<<model>>\n:User" as modelUsers
+database "<<MongoDB>>\n:Users" as UserDatabase
+
+client->server ++:req.post('/api/v1/auth')
+server->routerAuths ++:app.use('/api/v1/auths/login', auth);
+routerAuths -> controllersAuths ++:login()
+' controllersAuths->modelUsers ++:sendTokenResponse(user,200,res)
+controllersAuths -> sendTokenResponse ++: Generate JWT Token
+sendTokenResponse --> controllersAuths --: Token + Cookie
+' modelUsers ->UserDatabase --: UserSchema
+' UserDatabase --> modelUsers --: Auth
+' controllersAuths <-- modelUsers --:Auth
+controllersAuths->client --:response
+@enduml
+' Controller -> sendTokenResponse() ++: Generate JWT Token
+' sendTokenResponse() --> Controller --: Token + Cookie
+' Controller --> Server --: Response (User + Token)
+' Server --> Client --: Response (User Data)
+
+' @enduml

@@ -1,0 +1,22 @@
+@startuml Restaurant (GET ALL)
+
+header Get All Restaurants
+title "Restaurant (GET ALL)"
+participant "Client" as client
+participant "<<javaScript>>\n:server" as server
+participant "<<router>>\n:restaurants" as routerRestaurants
+participant "<<controllers>>\n:restaurants" as controllersRestaurants
+participant "<<model>>\n:restaurant" as modelRestaurants
+database "<<MongoDB>>\n:restaurants" as RestaurantDatabase
+
+client->server ++:req.get('/api/v1/restaurants')
+server->routerRestaurants ++:app.use('/api/v1/restaurants', restaurant);
+routerRestaurants -> controllersRestaurants ++:getRestaurants()
+controllersRestaurants->modelRestaurants ++: find()
+modelRestaurants ->RestaurantDatabase ++: RestaurantSchema
+
+RestaurantDatabase --> modelRestaurants --: Restaurant
+controllersRestaurants <-- modelRestaurants --:Restaurant
+controllersRestaurants->client --:response
+
+@enduml

@@ -1,0 +1,41 @@
+@startuml Restaurant reservation system Use Case Diagram
+skinparam actorStyle awesome
+actor "User" as user
+rectangle "Restaurant reservation system" as rrs {    
+    usecase "Register" as register
+    usecase "Login" as Login
+    usecase "Logout" as Logout
+    usecase "view login\nstatus" as getme
+    usecase "View\nRestaurants" as viewRestaurants
+    usecase "Manage\nRestaurants" as ManageRestaurants
+    usecase "View own\nReservation" as viewOwnReserve
+    usecase "View all\nReservation" as viewAllReserve
+    usecase "Manage own\nReservation" as manageOwnReserve
+    usecase "Manage all\nReservation" as manageAllReserve
+
+}
+
+user -- register
+user -- Login
+user -- Logout
+user -- getme
+user -- viewRestaurants
+user -- viewOwnReserve
+user -- manageOwnReserve
+
+
+actor "Admin" as admin
+register -- admin
+Login -- admin
+Logout -- admin
+getme -- admin
+viewRestaurants -- admin
+ManageRestaurants -- admin
+viewAllReserve -- admin
+manageAllReserve -- admin
+
+note "manage means can\n create, insert, delete" as manage
+
+note "user: view own = users can view only their own\nadmin: view all = can see all restaurant, reservation" as byt
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml Reservation (POST)
+
+header Post Reservation
+title "Reservation (POST)"
+
+participant "Client" as client
+participant "<<javaScript>>\n:server" as server
+participant "<<router>>\n:restaurants" as controllersRestaurants
+participant "<<router>>\n:reservations" as routerReservations
+participant "<<controllers>>\n:reservations" as controllersReservations
+participant "<<model>>\n:Reservation" as modelReservation
+database "<<MongoDB>>\n:reservations" as ReservationDatabase
+
+client->server ++:req.POST('/api/v1/:id/reservations')
+server->controllersRestaurants ++:app.use('/api/v1/restaurants',restaurants)
+controllersRestaurants -> routerReservations ++:router.use(reservationRouter)
+routerReservations->controllersReservations ++:createReservation()
+controllersReservations ->modelReservation ++: create(req.body)
+modelReservation -> ReservationDatabase ++: ReservationSchema
+
+ReservationDatabase --> modelReservation --: reservation
+controllersReservations <-- modelReservation --:reservation
+controllersReservations->client --:response
+
+@enduml

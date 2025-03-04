@@ -1,0 +1,22 @@
+@startuml Restaurant (Delete)
+
+header Delete Single Restaurant
+title "Restaurant (Delete)"
+participant "Client" as client
+participant "<<javaScript>>\n:server" as server
+participant "<<router>>\n:restaurants" as routerRestaurants
+participant "<<controllers>>\n:restaurants" as controllersRestaurants
+participant "<<model>>\n:restaurant" as modelRestaurants
+database "<<MongoDB>>\n:restaurants" as RestaurantDatabase
+
+client->server: req.delete('/api/v1/restaurants/:id')
+server->routerRestaurants: app.use('/api/v1/restaurants/:id', restaurant);
+routerRestaurants->controllersRestaurants: deleteRestaurant()
+controllersRestaurants->modelRestaurants: findByIdAndDelete(req.params.id)
+modelRestaurants->RestaurantDatabase: RestaurantSchema
+
+RestaurantDatabase --> modelRestaurants --: Restaurant
+controllersRestaurants <-- modelRestaurants --:Restaurant
+controllersRestaurants->client --:response
+
+@enduml

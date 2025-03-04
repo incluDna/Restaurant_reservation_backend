@@ -1,0 +1,74 @@
+@startuml
+
+class User {
+    - user_id : string <<generated>>
+    - name : string
+    - tel : string {unique}
+    - email : string {unique}
+    - role : string  ('admin' or 'user')
+    - password : string
+    - profile_url : string
+    + register()
+    + login()
+    + getMe()
+    + logout()
+}
+
+class Restaurant {
+    - rest_id : string <<generated>>
+    - name : string {unique}
+    - address : string
+    - district : string
+    - province : string
+    - postalcode : string
+    - tel : string {unique}
+    - region : string
+    - opentime : string
+    - closetime : string
+    + getRestaurants()
+    + getRestaurant()
+    + createRestaurant()  <<admin only>>
+    + updateRestaurant() <<admin only>>
+    + deleteRestaurant() <<admin only>>
+}
+
+class Reservation {
+    - reserve_id : string <<generated>>
+    - resDate : Date
+    - user_id : string <<FK>>
+    - rest_id : string <<FK>>
+    - quantity : Number
+    + addReservation() <<max 3 per user>>
+    + getMyReservations()
+    + updateMyReservation()
+    + deleteMyReservation()
+    + getAllReservations() <<admin only>>
+    + updateReservation() <<admin only>>
+    + deleteReservation() <<admin only>>
+}
+
+class Review {
+    - review_id : string <<generated>>
+    - user_id : string <<FK>>
+    - rest_id : string <<FK>>
+    - reviewStar : Number
+    - description : string
+    + addReview()
+    + getReviews()
+    + updateMyReview()
+    + deleteMyReview()
+    + getAllReviews() <<admin only>>
+    + updateReview() <<admin only>>
+    + deleteReview() <<admin only>>
+}
+
+' Relationships
+User "1" o-- "0..3" Reservation : makes
+Restaurant "1" o-- "0..*" Reservation : receives
+
+User "1" o-- "0..*" Review : writes
+Restaurant "1" o-- "0..*" Review : receives
+
+Reservation "1" *-- "0..*" Review : linksTo
+
+@enduml
