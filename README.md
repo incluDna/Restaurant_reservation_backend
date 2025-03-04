@@ -20,6 +20,7 @@
 - Class diagram: [code(.puml)](https://github.com/incluDna/Restaurant_reservation/blob/f90da645d391819c57c61c255ea46f1d759ff505/classDiagram.puml) | [diagram(.png)](https://github.com/incluDna/Restaurant_reservation/blob/f90da645d391819c57c61c255ea46f1d759ff505/out/classDiagram.png)
 - Sequence diagram: [code(.puml)](https://github.com/incluDna/Restaurant_reservation/tree/f90da645d391819c57c61c255ea46f1d759ff505/Sequence%20Diagram) | [diagram(.png)](https://github.com/incluDna/Restaurant_reservation/tree/f90da645d391819c57c61c255ea46f1d759ff505/out/Sequence%20Diagram)
 #### Presentation
+[MooDeng_RestaurantReservation.pdf](https://github.com/incluDna/Restaurant_reservation/blob/326bc63616d2b86062b36bb752f1c8ddcbb4b140/MooDeng_RestaurantReservation.pdf)
 
 #### Task management, Lesson learn 🦾
 
