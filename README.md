@@ -1,6 +1,6 @@
 ## Restaurant_reservation 🥐🛎️🍽️🍱🍣
 
-#### Backend code for restaurant resservation
+#### Backend code for restaurant reservation
 - users can register, login, logout (have role user and admin)
 - "user" can add, get, update, delete their reservations
 - "admin" can get all, add, update, delete all reservations and restaurants
