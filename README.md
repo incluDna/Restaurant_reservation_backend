@@ -23,7 +23,7 @@
 [MooDeng_RestaurantReservation.pdf](https://github.com/incluDna/Restaurant_reservation/blob/326bc63616d2b86062b36bb752f1c8ddcbb4b140/MooDeng_RestaurantReservation.pdf)
 
 #### Task management, Lesson learn 🦾
-
+[Doc:Task managemant & Lesson learn](https://docs.google.com/document/d/1XfdLlqYXHAoCYQ9TBi6ho5Q0S2CY7TeEiqgJIiMj5Yg/view?usp=sharing)
 
 #### Contributors
 - Atipat B. [atipata](https://github.com/atipata)
