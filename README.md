@@ -9,7 +9,7 @@
 #### Extra credit: Review restaurant ⭐⭐⭐⭐⭐
 - user can add review for restaurant they have gone
    * checked by reservation id
-   * also check: review date will be "After" reservation date
+   * also check: review date must be "After" reservation date
 
 #### Running
 - using Node.js, VScode
