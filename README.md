@@ -8,7 +8,7 @@
 
 #### Extra credit: Review restaurant ⭐⭐⭐⭐⭐
 - user can add review for restaurant they have gone
-   * check by reservation id
+   * checked by reservation id
    * also check: review date will be "After" reservation date
 
 #### Running
