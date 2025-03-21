@@ -22,7 +22,7 @@
 #### Presentation
 [MooDeng_RestaurantReservation.pdf](https://github.com/incluDna/Restaurant_reservation/blob/326bc63616d2b86062b36bb752f1c8ddcbb4b140/MooDeng_RestaurantReservation.pdf)
 
-#### Task management, Lesson learn 🦾 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2tjZWdqc2IyeGdxZW56c2MwMHYxZXF6bzRzdmMxbnNoYThkZGZneCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/24akSucLOFwwoZamdr/giphy.gif" width="100px" align=center>
+#### Task management & Lesson learn 🦾 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2tjZWdqc2IyeGdxZW56c2MwMHYxZXF6bzRzdmMxbnNoYThkZGZneCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/24akSucLOFwwoZamdr/giphy.gif" width="100px" align=center>
 [Doc:Task management & Lesson learn](https://docs.google.com/document/d/1XfdLlqYXHAoCYQ9TBi6ho5Q0S2CY7TeEiqgJIiMj5Yg/view?usp=sharing)
 
 #### Contributors
