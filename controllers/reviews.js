@@ -9,26 +9,11 @@ const Reserve= require('../models/Reservation');
 
 exports.getReviews = async (req,res,next) => {
     let query;
-    if(req.user.role !== 'admin') { //general users can see only their reviews
         query=Review.find({user:req.user.id}).populate({
             path:'restaurant',
             select:'name reviews'
         });
-    } else {
-        if(req.params.restaurantId) {
-            console.log(req.params.restaurantId);
-            query = Review.find({restaurant:req.params.restaurantId}).populate({
-                path:"restaurant",
-                select: "name reviews",
-            });
-        }else {  //if you are admin, you can see all reviews
-            query = Review.find().populate({
-                path:'restaurant',
-                select: 'name reviews'
-            });
-        }
-    
-    }try {
+    try {
         const reviews = await query;
         res.status(200).json({
             success: true,
