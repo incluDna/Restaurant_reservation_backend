@@ -42,13 +42,13 @@ const RestaurantSchema = new mongoose.Schema({
             minlength: 5,
             maxlength: [5, 'Please label time in 24hr system']
         },
-        closetime: {
+    closetime: {
             type: String,
             required: [true, 'Please add a Close Time'],
             minlength: 5,
             maxlength: [5, 'Please label time in 24hr system']
         },
-        picture: {
+    picture: {
             type: String,
             required: [true, 'Please add a Picture Link'],
         }
