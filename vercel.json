@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "name": "moodeng_restaurant_reservation",
+    "builds": [
+      {
+        "src": "server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "server.js"
+      }
+    ]
+}
+  
