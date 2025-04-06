@@ -9,10 +9,36 @@ const Reserve= require('../models/Reservation');
 
 exports.getReviews = async (req,res,next) => {
     let query;
-        query=Review.find({user:req.user.id}).populate({
-            path:'restaurant',
-            select:'name reviews'
-        });
+    if(req.user.role !== 'admin') { //general users can see only their reservations
+        
+        if(req.params.restaurantId) {
+            console.log(req.params.restaurantId);
+            query = Review.find({restaurant:req.params.restaurantId}).populate({
+                path:"restaurant",
+                select: "name",
+            });
+        }else{
+            query=Review.find({user:req.user.id}).populate({
+                path:'restaurant',
+                select:'name reviews'
+            }); 
+        }
+    }else{
+        if(req.params.restaurantId) {
+                console.log(req.params.restaurantId);
+                query = Review.find({restaurant:req.params.restaurantId}).populate({
+                    path:"restaurant",
+                    select: "name",
+                });
+        }else {  //if you are admin, you can see all reservations
+            query = Review.find().populate({
+                path:'restaurant',
+                select: 'name'
+            });
+            
+        }
+        
+    }
     try {
         const reviews = await query;
         res.status(200).json({
@@ -27,6 +53,7 @@ exports.getReviews = async (req,res,next) => {
             message: "Cannot find Review"
         });
     }
+    
 
 };
     //get single review -Public
@@ -58,7 +85,6 @@ exports.getReview = async (req, res, next) => {
         });
     }
 };
-
     //add review -Private
     // POST api/v1/reviews/:id
 exports.addReview = async (req, res, next) => {
@@ -79,12 +105,19 @@ exports.addReview = async (req, res, next) => {
 
         // Check for existing reviews
         const existingReserves = await Reserve.find({ user: req.user.id, restaurant: req.params.restaurantId });
+        const existingReview = await Review.find({ user: req.user.id, restaurant: req.params.restaurantId });
 
         // If the user is not an admin, they can only create 3 reviews
         if (!existingReserves && req.user.role !== 'admin') {
             return res.status(400).json({
                 success: false,
                 message: `The user with ID ${req.user.id} hasn't reserved any restaurants yet`
+            });
+        }
+        if(existingReview){
+            return res.status(400).json({
+                success: false,
+                message: `This user already review`
             });
         }
 
@@ -122,7 +155,7 @@ exports.addReview = async (req, res, next) => {
 //Update review -Private
 //PUT /api/v1/reviews/:id
 exports.updateReview = async (req, res, next) => {
-    
+
     // Make sure user is the review owner
     
     try {
